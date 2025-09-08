@@ -110,15 +110,15 @@ export default function MedecineGenerale() {
       {/* Bloc 4: Signes généraux */}
       <fieldset>
         <legend>Signes généraux</legend>
-        <input name="signesGeneraux_temperature" value={form.temperature || ""} onChange={handleChange} placeholder="Température"/>
-        <input name="signesGeneraux_poids" value={form.weight || ""} onChange={handleChange} placeholder="Poids"/>
-        <input name="signesGeneraux_taS" value={form.TAS || ""} onChange={handleChange} placeholder="TA Systolique (mmHg)"/>
-        <input name="signesGeneraux_taD" value={form.TAD || ""} onChange={handleChange} placeholder="TA Diastolique (mmHg)"/>
-        <input name="signesGeneraux_fc" value={form.FC || ""} onChange={handleChange} placeholder="FC (bpm)"/>
-        <input name="signesGeneraux_fr" value={form.FR || ""} onChange={handleChange} placeholder="FR (rpm)"/>
-        <input name="signesGeneraux_sao2" value={form.sao2 || ""} onChange={handleChange} placeholder="SaO2 (%)"/>
-        <input name="signesGeneraux_glycemie" value={form.glycemie || ""} onChange={handleChange} placeholder="Glycémie (mmol/L)"/>
-        <select name="signesGeneraux_etatGeneral" value={form.etatGeneral || ""} onChange={handleChange}>
+        <input name="temperature" value={form.temperature || ""} onChange={handleChange} placeholder="Température"/>
+        <input name="weight" value={form.weight || ""} onChange={handleChange} placeholder="Poids"/>
+        <input name="taS" value={form.TAS || ""} onChange={handleChange} placeholder="TA Systolique (mmHg)"/>
+        <input name="taD" value={form.TAD || ""} onChange={handleChange} placeholder="TA Diastolique (mmHg)"/>
+        <input name="fc" value={form.FC || ""} onChange={handleChange} placeholder="FC (bpm)"/>
+        <input name="fr" value={form.FR || ""} onChange={handleChange} placeholder="FR (rpm)"/>
+        <input name="sao2" value={form.sao2 || ""} onChange={handleChange} placeholder="SaO2 (%)"/>
+        <input name="glycemie" value={form.glycemie || ""} onChange={handleChange} placeholder="Glycémie (mmol/L)"/>
+        <select name="etatGeneral" value={form.etatGeneral || ""} onChange={handleChange}>
           <option value="">État général</option>
           <option value="Bon">Bon</option>
           <option value="Moyen">Moyen</option>
