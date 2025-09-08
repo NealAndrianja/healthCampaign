@@ -76,8 +76,19 @@ export default function MedecineGenerale() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await medPatientApi.create(form);
-      console.log(form)
+      // On prépare les données à plat
+      const payload = {
+        ...form,
+        antecedents: JSON.stringify(form.antecedents),
+        motifConsultation: JSON.stringify(form.motifConsultation),
+        signesGeneraux: JSON.stringify(form.signesGeneraux),
+        examenClinique: JSON.stringify(form.examenClinique),
+        hypotheses: JSON.stringify(form.hypotheses),
+        conduite: JSON.stringify(form.conduite),
+      };
+
+      await medPatientApi.create(payload);
+      console.log(form);
       alert("Patient créé avec succès !");
     } catch (err) {
       console.error(err);
