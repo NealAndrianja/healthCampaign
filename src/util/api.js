@@ -1,11 +1,9 @@
 // util/api.js
-const BASE = "http://10.190.183.94:4000/api";
+const BASE = "http://192.168.1.200:4000/api";
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     ...options,
   });
   if (!res.ok) {
@@ -15,24 +13,25 @@ async function request(path, options = {}) {
   return res.json();
 }
 
-export async function getPatients() {
-  return request("/patients");
+export function makeApi(resource) {
+  return {
+    getAll: () => request(`/${resource}`),
+    getById: (id) => request(`/${resource}/${id}`),
+    create: (data) =>
+      request(`/${resource}`, {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
+    update: (id, data) =>
+      request(`/${resource}/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+      }),
+    remove: (id) =>
+      request(`/${resource}/${id}`, { method: "DELETE" }),
+  };
 }
 
-export async function createPatient(patient) {
-  return request("/patients", {
-    method: "POST",
-    body: JSON.stringify(patient),
-  });
-}
-
-export async function updatePatient(id, patient) {
-  return request(`/patients/${id}`, {
-    method: "PUT",
-    body: JSON.stringify(patient),
-  });
-}
-
-export async function deletePatient(id) {
-  return request(`/patients/${id}`, { method: "DELETE" });
-}
+// Instances réutilisables
+export const patientApi = makeApi("patients");
+export const medPatientApi = makeApi("medPatients");
