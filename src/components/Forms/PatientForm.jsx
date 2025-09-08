@@ -18,6 +18,7 @@ const makeInitial = () => ({
   firstName: "",
   birthDate: "",
   age: "",
+  months: "",
   gender: "",
   phone: "",
   address: "",
@@ -119,6 +120,7 @@ const PatientForm = ({ onAdd }) => {
       <div className="row">
         <input type="date" name="birthDate" value={form.birthDate} onChange={handleChange} />
         <input name="age" placeholder="Âge" value={form.age} readOnly />
+        <input name="months" placeholder="Mois" value={form.months} onChange={handleChange} />
         <select name="gender" value={form.gender} onChange={handleChange}>
           <option value="">Sexe</option>
           <option value="M">M</option>
