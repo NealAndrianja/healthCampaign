@@ -12,9 +12,10 @@ function PatientTable({ data = [], onDelete }) {
   const columns = useMemo(() => {
     if (!data || data.length === 0) return [];
     const preferred = [
-      "id","lastName","firstName","birthDate","age","gender",
-      "phone","address","weight","height","bmi","temperature",
-      "bloodPressure","pulse","consciousness"
+       "id","lastName","firstName","birthDate","age","gender",
+       "phone","address","weight","height","bmi","temperature",
+       "TAS","TAD","FC","FR","sao2","glycemie","etatConscience",
+       "etatGeneral","dehydration",
     ];
     return preferred.filter(c => Object.prototype.hasOwnProperty.call(data[0], c));
   }, [data]);

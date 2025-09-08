@@ -25,9 +25,15 @@ const makeInitial = () => ({
   height: "",
   bmi: "",
   temperature: "",
-  bloodPressure: "",
-  pulse: "",
-  consciousness: "",
+  TAS: "",
+  TAD: "",
+  FC: "",
+  FR: "",
+  sao2: "",
+  glycemie: "",
+  etatConscience: "",
+  etatGeneral: "",
+  dehydration: "",
 });
 
 // Génération de l'ID patient
@@ -129,16 +135,45 @@ const PatientForm = ({ onAdd }) => {
         <input name="weight" placeholder="Poids (kg)" value={form.weight} onChange={handleChange} />
         <input name="height" placeholder="Taille (cm)" value={form.height} onChange={handleChange} />
         <input name="bmi" placeholder="IMC" value={form.bmi} readOnly />
-      </div>
-
-      <div className="row">
         <input name="temperature" placeholder="Température" value={form.temperature} onChange={handleChange} />
-        <input name="bloodPressure" placeholder="Tension" value={form.bloodPressure} onChange={handleChange} />
-        <input name="pulse" placeholder="Pouls" value={form.pulse} onChange={handleChange} />
       </div>
 
       <div className="row">
-        <input name="consciousness" placeholder="Conscience" value={form.consciousness} onChange={handleChange} />
+        <input name="TAS" placeholder="TA Systolique" value={form.TAS} onChange={handleChange} />
+        <input name="TAD" placeholder="TA Diastolique" value={form.TAD} onChange={handleChange} />
+        <input name="FC" placeholder="Fréquence cardiaque (bpm)" value={form.FC} onChange={handleChange} />
+        <input name="FR" placeholder="Fréquence respiratoire (rpm)" value={form.FR} onChange={handleChange} />
+      </div>
+
+      <div className="row">
+        <input name="sao2" placeholder="SaO2 (%)" value={form.sao2} onChange={handleChange} />
+        <input name="glycemie" placeholder="Glycémie (mmol/L)" value={form.glycemie} onChange={handleChange} />
+      </div>
+
+      <div className="row">
+        <select name="etatConscience" value={form.etatConscience} onChange={handleChange}>
+          <option value="">Etat de Conscience</option>
+          <option value="Normal">Normal</option>
+          <option value="Altérée">Altérée</option>
+          </select>
+      </div>
+
+       <div className="row">
+        <select name="etatGeneral" value={form.etatGeneral} onChange={handleChange}>
+          <option value="">Etat général</option>
+          <option value="Normal">Bon</option>
+          <option value="Normal">Moyen</option>
+          <option value="Altérée">Mauvais</option>
+          </select>
+      </div>
+      
+      <div className="row">
+        <select name="dehydration" value={form.dehydration} onChange={handleChange}>
+          <option value="">Déshydratation</option>
+          <option value="Normal">Aucune</option>
+          <option value="Normal">Modérée</option>
+          <option value="Altérée">Sévère</option>
+          </select>
       </div>
 
       <div className="actions">
