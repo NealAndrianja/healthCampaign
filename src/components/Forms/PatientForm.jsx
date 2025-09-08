@@ -18,6 +18,7 @@ const makeInitial = () => ({
   firstName: "",
   birthDate: "",
   age: "",
+  months: "",
   gender: "",
   phone: "",
   address: "",
@@ -119,6 +120,7 @@ const PatientForm = ({ onAdd }) => {
       <div className="row">
         <input type="date" name="birthDate" value={form.birthDate} onChange={handleChange} />
         <input name="age" placeholder="Âge" value={form.age} readOnly />
+        <input name="months" placeholder="Mois" value={form.months} onChange={handleChange} />
         <select name="gender" value={form.gender} onChange={handleChange}>
           <option value="">Sexe</option>
           <option value="M">M</option>
@@ -149,30 +151,30 @@ const PatientForm = ({ onAdd }) => {
         <input name="sao2" placeholder="SaO2 (%)" value={form.sao2} onChange={handleChange} />
         <input name="glycemie" placeholder="Glycémie (mmol/L)" value={form.glycemie} onChange={handleChange} />
       </div>
+      
+       <div className="row">
+        <select name="etatGeneral" value={form.etatGeneral} onChange={handleChange}>
+          <option value="">État général</option>
+          <option value="Bon">Bon</option>
+          <option value="Moyen">Moyen</option>
+          <option value="Mauvais">Mauvais</option>
+          </select>
+      </div>      
 
       <div className="row">
         <select name="etatConscience" value={form.etatConscience} onChange={handleChange}>
-          <option value="">Etat de Conscience</option>
+          <option value="">État de conscience</option>
           <option value="Normal">Normal</option>
           <option value="Altérée">Altérée</option>
-          </select>
-      </div>
-
-       <div className="row">
-        <select name="etatGeneral" value={form.etatGeneral} onChange={handleChange}>
-          <option value="">Etat général</option>
-          <option value="Normal">Bon</option>
-          <option value="Normal">Moyen</option>
-          <option value="Altérée">Mauvais</option>
-          </select>
+        </select>
       </div>
       
       <div className="row">
         <select name="dehydration" value={form.dehydration} onChange={handleChange}>
           <option value="">Déshydratation</option>
-          <option value="Normal">Aucune</option>
-          <option value="Normal">Modérée</option>
-          <option value="Altérée">Sévère</option>
+          <option value="Aucune">Aucune</option>
+          <option value="Modérée">Modérée</option>
+          <option value="Sévère">Sévère</option>
           </select>
       </div>
 

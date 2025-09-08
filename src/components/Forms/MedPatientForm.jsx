@@ -202,6 +202,29 @@ export default function MedecineGenerale() {
       {/* Bloc 4: Signes généraux */}
       <fieldset>
         <legend>Signes généraux</legend>
+
+        <label>Température</label>
+        <input name="temperature" value={form.temperature || ""} onChange={handleChange} placeholder="Température"/>
+        <label>Poids (kg)</label>
+        <input name="weight" value={form.weight || ""} onChange={handleChange} placeholder="Poids"/>
+        <label>Taille (cm)</label>
+        <input name="height" value={form.height || ""} onChange={handleChange} placeholder="Taille"/>
+        <label>IMC</label>
+        <input name="imc" value={form.bmi || ""} onChange={handleChange} placeholder="IMC"/>
+        <label>TA Systolique (mmHg)</label>
+        <input name="taS" value={form.TAS || ""} onChange={handleChange} placeholder="TA Systolique (mmHg)"/>
+        <label>TA Diastolique (mmHg)</label>
+        <input name="taD" value={form.TAD || ""} onChange={handleChange} placeholder="TA Diastolique (mmHg)"/>
+        <label>FC (bpm)</label>
+        <input name="fc" value={form.FC || ""} onChange={handleChange} placeholder="FC (bpm)"/>
+        <label>FR (rpm)</label>
+        <input name="fr" value={form.FR || ""} onChange={handleChange} placeholder="FR (rpm)"/>
+        <label>SaO2 (%)</label>
+        <input name="sao2" value={form.sao2 || ""} onChange={handleChange} placeholder="SaO2 (%)"/>
+        <label>Glycémie (mmol/L)</label>
+        <input name="glycemie" value={form.glycemie || ""} onChange={handleChange} placeholder="Glycémie (mmol/L)"/>
+        <label>État général</label>
+
         <input
           name="temperature"
           value={form.temperature || ""}
@@ -259,6 +282,15 @@ export default function MedecineGenerale() {
           <option value="Moyen">Moyen</option>
           <option value="Mauvais">Mauvais</option>
         </select>
+
+        <label>État de conscience</label>
+        <select name="etatConscience" value={form.etatConscience || ""} onChange={handleChange}>
+          <option value="">État de conscience</option>
+          <option value="Normal">Normal</option>
+          <option value="Altérée">Altérée</option>
+        </select>
+        <label>Déshydratation</label>
+
         <select
           name="etatConscience"
           value={form.etatConscience || ""}
@@ -272,6 +304,7 @@ export default function MedecineGenerale() {
           value={form.dehydration || ""}
           onChange={handleChange}
         >
+
           <option value="">Déshydratation</option>
           <option value="Aucune">Aucune</option>
           <option value="Modérée">Modérée</option>
