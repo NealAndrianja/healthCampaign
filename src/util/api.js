@@ -1,5 +1,5 @@
 // util/api.js
-const BASE = "http://10.190.183.94:4000/api";
+const BASE = "http://localhost:4000/api";
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {
