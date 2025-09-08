@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPatients, createPatient, updatePatient, deletePatient } from "../../util/api";
+import { patientApi } from "../../util/api";
 import "./patient.css";
 import PatientForm from "../../components/Forms/PatientForm";
 import PatientTable from "../../components/Table/PatientTable";
@@ -12,7 +12,7 @@ export default function Patient() {
   const fetchPatients = async () => {
     try {
       setLoading(true);
-      const data = await getPatients();
+      const data = await patientApi.getAll();
       setPatients(data);
     } catch (err) {
       console.error("Failed to fetch patients", err);
@@ -27,7 +27,7 @@ export default function Patient() {
 
   const handleAdd = async (p) => {
     try {
-      const created = await createPatient(p);
+      const created = await patientApi.create(p);
       setPatients((s) => [...s, created]);
     } catch (err) {
       console.error(err);
@@ -37,7 +37,7 @@ export default function Patient() {
 
   const handleUpdate = async (id, partial) => {
     try {
-      const updated = await updatePatient(id, partial);
+      const updated = await patientApi.update(id, partial);
       setPatients((s) => s.map((r) => (String(r.id) === String(id) ? updated : r)));
     } catch (err) {
       console.error(err);
@@ -48,7 +48,7 @@ export default function Patient() {
   const handleDelete = async (id) => {
     if (!window.confirm("Supprimer ce patient ?")) return;
     try {
-      await deletePatient(id);
+      await patientApi.remove(id);
       setPatients((s) => s.filter((r) => String(r.id) !== String(id)));
     } catch (err) {
       console.error(err);

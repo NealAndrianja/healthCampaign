@@ -76,7 +76,7 @@ const PatientForm = ({ onAdd }) => {
     setForm(updated);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.lastName || !form.firstName || !form.physicianId) {
       alert("Nom, prénom et médecin requis");
