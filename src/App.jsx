@@ -7,6 +7,7 @@ import ConsultationsPrenatales from "./pages/ConsultationsPrenatales/Consultatio
 import Ophtalmo from "./pages/Ophtalmo/Ophtalmo";
 import MedecineGenerale from "./pages/MedecineGenerale/MedecineGenerale";
 import Layout from "./components/Layout";
+import "./App.css";
 
 function App() {
   return (
